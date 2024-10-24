@@ -1,10 +1,10 @@
 const array1 = [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }];
 const array2 = [ { id: 3, name: 'David' } , { id: 2, name: 'Charlie' }];
 const items = [
-    { name: 'Apple', category: 'Fruit' },
-    { name: 'Banana', category: 'Fruit' },
-    { name: 'Carrot', category: 'Vegetable' },
-    { name: 'Broccoli', category: 'Vegetable' }
+    { _id : 1 ,  name: 'Apple', category: 'Fruit' },
+    { _id : 2 , name: 'Banana', category: 'Fruit' },
+    { _id : 3 , name: 'Carrot', category: 'Vegetable' },
+    { _id : 4, name: 'Broccoli', category: 'Vegetable' }
 ];
 const scores = [
     { subject: 'Math', score: 80 },
