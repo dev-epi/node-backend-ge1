@@ -1,7 +1,7 @@
 
 const { itemList, listByCategory, createItem, updateItem, removeItem, getItemByName } = require('./controllers/items.controller')
 const userController = require('./controllers/users.controller')
-
+const expController = require('./controllers/experiences.controller')
 module.exports=(server)=>{
     server.get('/list' , itemList)
     server.get('/list/:categ' ,listByCategory)
@@ -13,7 +13,13 @@ module.exports=(server)=>{
     server.get('/users' , userController.getAll)
     server.post('/users' , userController.createUser)
     server.put('/users/:id' , userController.updateUser)
-}
+    server.delete('/users/:id' , userController.deleteUser)
+
+    server.get('/exps' , expController.getAll)
+    server.post('/exps' , expController.createExperience)
+    server.put('/exps/:id' , expController.updateExperience)
+    server.delete('/exps/:id' , expController.deleteExperience)
+}   
 
 
 

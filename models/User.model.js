@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const SkillModel = require('./Skill.model')
 
 const schema = mongoose.Schema({
     firstName : String,
@@ -14,7 +15,8 @@ const schema = mongoose.Schema({
         path : String,
         size : Number,
         name : String
-    }]
+    }],
+    skills : [{type : mongoose.Types.ObjectId , ref : SkillModel}]
 })
 
 

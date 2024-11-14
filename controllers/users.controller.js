@@ -28,3 +28,8 @@ exports.updateUser = (req,res)=>{
     })
 }
 
+exports.deleteUser = (req , res)=>{
+    UserModel.deleteOne({_id : req.params.id})
+    .then(result=>res.send(result))
+    .catch(err=>res.status(422).send(err))
+}
