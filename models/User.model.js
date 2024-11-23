@@ -11,7 +11,7 @@ const schema = mongoose.Schema({
         postalCode : Number
     },
     image : String,
-    files : [{
+    attestations : [{
         path : String,
         size : Number,
         name : String
