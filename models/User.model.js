@@ -5,6 +5,7 @@ const schema = mongoose.Schema({
     firstName : String,
     lastName : {type : String , default : "_"},
     email : {type : String , required : true , unique : true},
+    password : {type : String , required : true},
     birthdate : Date,
     address : {
         streetName : String,

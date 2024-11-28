@@ -3,7 +3,7 @@ const { itemList, listByCategory, createItem, updateItem, removeItem, getItemByN
 const userController = require('./controllers/users.controller')
 const expController = require('./controllers/experiences.controller')
 const {  testMiddleware } = require('./middlewares/middlewares')
-
+const authController = require('./controllers/auth.controller')
 const multiparty = require('connect-multiparty')
 const uploadMiddleware = multiparty({uploadDir : './images'})
 module.exports=(server)=>{
@@ -23,6 +23,12 @@ module.exports=(server)=>{
     server.post('/exps' , expController.createExperience)
     server.put('/exps/:id' , expController.updateExperience)
     server.delete('/exps/:id' , expController.deleteExperience)
+
+
+
+    //auth apis
+
+    server.post('/register' , authController.register)
 }   
 
 
