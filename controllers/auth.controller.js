@@ -1,5 +1,6 @@
 const UserModel = require("../models/User.model")
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 exports.register = async (req, res) => {
 
     try {
@@ -28,4 +29,26 @@ exports.register2 = (req, res) => {
             }
         }).catch(err => res.status(404).send(err))
 
+}
+
+exports.login = async(req,res)=>{
+    try{
+        let {email , password} = req.body
+        if(email && password){
+            let user = await UserModel.findOne({email : email})
+            
+            if(user && await bcrypt.compare(password , user.password)){
+                let token = jwt.sign({_id : user._id , role : 'test'} , process.env.SECRET )
+
+                res.send({firstName : user.firstName , token : token})
+            }else{
+                res.status(403).send({message : 'Invalid credentials'})
+            }
+        }else{
+            res.status(444).send({message : 'Missing fields'})
+        }
+    }catch(err){
+        console.log(err)
+        res.status(444).send(err)
+    }
 }
