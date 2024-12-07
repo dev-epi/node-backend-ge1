@@ -20,7 +20,7 @@ module.exports=(server)=>{
     server.delete('/users/:id' , userController.deleteUser)
 
     server.get('/exps' , verifyToken , expController.getAll)
-    server.post('/exps' , expController.createExperience)
+    server.post('/exps' ,verifyToken, expController.createExperience)
     server.put('/exps/:id' , expController.updateExperience)
     server.delete('/exps/:id' , expController.deleteExperience)
 
@@ -30,6 +30,8 @@ module.exports=(server)=>{
 
     server.post('/register' , authController.register)
     server.post('/login' , authController.login)
+    server.post('/forgot-password' , authController.forgotPassword)
+    server.post('/reset-password' , authController.resetPassword)
 }   
 
 

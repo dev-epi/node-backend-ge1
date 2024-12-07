@@ -17,7 +17,8 @@ const schema = mongoose.Schema({
         size : Number,
         name : String
     }],
-    skills : [{type : mongoose.Types.ObjectId , ref : SkillModel}]
+    skills : [{type : mongoose.Types.ObjectId , ref : SkillModel}],
+    resetKey : String
 })
 
 
